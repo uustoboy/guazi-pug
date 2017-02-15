@@ -1,0 +1,22 @@
+extends layout
+
+block content
+        ul.car-ul
+            each car in carlists
+                li
+                    a(href=car._id flex)
+                        div(class="car-img" flex-box="1")
+                            img(src=car.imgs[0]) 				  
+                        div(class="car-infolist" flex-box="9")
+                            div(class="car-infolist" flex-box="9")
+                                    div.car-name.
+                                        #{car.info}
+                                    div.car-km
+                                        span.
+                                            #{car.time}年/#{car.mileage}万公里
+                                    div.car-price
+                                        strong.
+                                            #{car.money}万
+
+        script(src="/public/j/dropload.min.js" type="text/javascript")
+        script(src="/public/j/index.js" type="text/javascript")

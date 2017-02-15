@@ -1,0 +1,58 @@
+extends layout
+
+block content
+        div.product-head
+            img(class="product-headImg"  src=carinfo.imgs[0])
+            div
+                h1.product-title #{carinfo.info}
+        div.sevser-about
+            ul(class="mod-sev" flex)
+                li(flex="main:center cross:center" flex-box="1")
+                    div
+                        p.about-own.
+                            车主报价
+                        p.about-prize.
+                            #{carinfo.money}万
+                li(flex="main:center cross:center" flex-box="1")
+                    div
+                        p.about-own.
+                            贷款首期款
+                        p.about-prize.
+                            ¥#{ Math.floor(parseFloat( carinfo.money.substring(1,carinfo.money.length) ) * 0.3) }万
+                li(flex="main:center cross:center" flex-box="1")
+                    div
+                        p.about-own.
+                            服务费
+                        p.about-prize.
+                            #{ Math.floor(parseFloat( carinfo.money.substring(1,carinfo.money.length) ) * 0.03 *10000) }元
+        div.column
+            div.column-head.
+                基本信息
+            ul(flex class="column-carul")
+                li(flex-box="5")
+                    span.info-title.
+                        表显里程：
+                    span #{carinfo.mileage}万公里
+                li(flex-box="5")
+                    span.info-title.
+                        上牌时间：
+                    span #{carinfo.time}
+                li(flex-box="5")
+                    span.info-title.
+                        牌照归属：
+                    span #{carinfo.location}
+                li(flex-box="5")
+                    span.info-title.
+                        排放标准：
+                    span #{carinfo.emission}
+                li(flex-box="5")
+                    span.info-title.
+                        变速箱：
+                    span #{carinfo.gearbox}
+                li(flex-box="5")
+                    span.info-title.
+                        看车地址：
+                    span #{carinfo.location}
+        div.product-img
+            each imgs in carinfo.imgs
+                img(src=imgs)
